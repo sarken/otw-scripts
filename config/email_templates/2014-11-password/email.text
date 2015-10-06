@@ -1,0 +1,17 @@
+Dear [% username %],
+
+We’ve recently upgraded our password encryption in response to a possible security issue affecting a number of accounts (see our AO3 News post for more details  http://bit.ly/AO3passwords ). Your account will be automatically upgraded to use the stronger encryption next time you log in. If you usually stay logged in all the time, please log out and then back in to ensure your account is upgraded.
+
+To our knowledge, no accounts were compromised as a result of this issue, but we strongly recommend that you change your password as a precaution.
+
+You can use this link http://archiveofourown.org/users/[% username %]/change_password to change your password, or:
+
+1) Log into your account with your current password. 
+2) Visit your Profile.
+3) Follow the 'Edit My Profile' link at the bottom of the page.
+4) Follow the 'Change Password' link at the top.
+
+We strongly recommend you pick at least a combination of letters and numbers, and avoid easily guessable passwords like ‘password’ or ‘123456’. You may wish to use a service like How Secure is my Password? ( https://howsecureismypassword.net/ ) to help you create a strong password.
+
+Sincerely,
+The AO3 team
