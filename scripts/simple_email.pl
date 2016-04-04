@@ -4,10 +4,16 @@ use Template;
 use Template::Config;
 use Getopt::Long;
 
-my ($template_dir,$email,$username,$html,$text);
+my ($template_dir,$email,$username,$html,$text,$subject,$from);
 
-GetOptions ( 'templatedir|T=s'=>\$template_dir,'email|E=s'=>\$email,'username|U=s'=>\$username) ;
+GetOptions ( 'templatedir|T=s'=>\$template_dir,'email|E=s'=>\$email,'username|U=s'=>\$username,'subject|S=s'=>\$subject,'from|f=s'=>\$from) ;
 my $username_url = uri_escape($username) ;
+if (!defined $subject) {
+  $subject='Please support the Archive!'
+}
+if (!defined $from) {
+  $from='Archive of Our Own <do-not-reply@archiveofourown.org>'
+}
 
 my $vars   = {
        email        => $email ,
@@ -20,8 +26,8 @@ my $vars   = {
 
 my $msg = MIME::Lite->new
 (
-  Subject => "Please support the Archive!",
-  From    => 'Archive of Our Own <do-not-reply@archiveofourown.org>',
+  Subject => "$subject",
+  From    => "$from",
   To      => "$email",
   Type    => 'multipart/alternative',
 );
