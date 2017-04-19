@@ -1,3 +1,10 @@
+#perlbrew install  perl-5.25.11
+#perlbrew switch  perl-5.25.11
+#cpanm install MIME::Lite
+#cpanm install URI::Escape
+#cpanm install Template
+#cpanm install Template::Config
+#cpanm install Getopt::Long
 use MIME::Lite;
 use URI::Escape;
 use Template;
@@ -20,9 +27,6 @@ my $vars   = {
        username     => $username ,
        username_url => $username_url,
      } ;
-
-
-
 
 my $msg = MIME::Lite->new
 (
