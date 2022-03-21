@@ -1,6 +1,5 @@
 #perlbrew install perl - 5.25 .11
-#perlbrew
-switch perl - 5.25 .11
+#perlbrew switch perl - 5.25 .11
 #cpanm install MIME::Lite
 #cpanm install URI::Escape
 #cpanm install Template
