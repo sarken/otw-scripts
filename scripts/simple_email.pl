@@ -29,29 +29,29 @@ my $vars = {
   username_url => $username_url,
 };
 
-my $msg = MIME::Lite - > new(
+my $msg = MIME::Lite -> new(
   Subject => "$subject",
   From => "$from",
   To => "$email",
   Type => 'multipart/alternative',
 );
 
-my $tt = Template - > new(EVAL_PERL => 1, INCLUDE_PATH => $template_dir);
-if (!$tt - > process('email.html', $vars, \$html)) {
+my $tt = Template -> new(EVAL_PERL => 1, INCLUDE_PATH => $template_dir);
+if (!$tt -> process('email.html', $vars, \$html)) {
   print "Skiping $username\n";
   exit 1;
 }
-if (!$tt - > process('email.text', $vars, \$text)) {
+if (!$tt -> process('email.text', $vars, \$text)) {
   print "Skiping $username\n";
   exit 1;
 }
 
-$msg - > attach(
+$msg -> attach(
   Type => 'TEXT',
   Data => $text);
 
-$msg - > attach(
+$msg -> attach(
   Type => 'text/html',
   Data => $html);
 
-$msg - > send();
+$msg -> send();
