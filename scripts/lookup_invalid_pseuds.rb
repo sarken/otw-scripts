@@ -1,4 +1,11 @@
-# Look up pseuds with invalid icon, icon_alt_text, or icon_comment text and prepare to email the users.
+#!script/rails runner
+#
+# bundle exec rails r script/lookup_invalid_pseuds.rb
+#
+# Use this script to look up pseuds with invalid icon, icon_alt_text, or
+# icon_comment text and prepare to email the users those pseuds belong to.
+
+# Valid icon types.
 valid_types = %w[image/gif image/jpeg image/png]
 
 pseuds_with_invalid_icons = Pseud.where("icon_file_name IS NOT NULL AND icon_content_type NOT IN (?)", valid_types)
