@@ -5,8 +5,10 @@
 # Use this script to look up pseuds with invalid icon, icon_alt_text, or
 # icon_comment text and prepare to email the users those pseuds belong to.
 
-# Valid icon types.
-valid_types = %w[image/gif image/jpeg image/png]
+# Valid icon types, from validates_attachment_content_type in pseuds model.
+# image/jpg is not actually a valid type, but we're going to fix that
+# instead of deleting the icon, so we don't need to email those users.
+valid_types = %w[image/gif image/jpeg image/png image/jpg]
 
 pseuds_with_invalid_icons = Pseud.where("icon_file_name IS NOT NULL AND icon_content_type NOT IN (?)", valid_types)
 pseuds_with_invalid_text = Pseud.where("CHAR_LENGTH(icon_alt_text) > ? OR CHAR_LENGTH(icon_comment_text) > ?", ArchiveConfig.ICON_ALT_MAX, ArchiveConfig.ICON_COMMENT_MAX)
