@@ -23,6 +23,6 @@ File.open("/tmp/runme.sh", "w") do |f|
   users_with_invalid_pseuds.each do |user|
     next if user.nil?
     subject = "[AO3] Issue with your AO3 pseud icon"
-    f.puts "perl scripts/invalid_pseuds_email.pl -t config/email_templates/2022-03-invalid-pseuds -s \"#{subject}\" -e #{user.email} -u #{user.login}\n"
+    f.puts "perl scripts/simple_email.pl -t config/email_templates/2022-03-invalid-pseuds -s \"#{subject}\" -e #{user.email} -u #{user.login}\n"
   end
 end
